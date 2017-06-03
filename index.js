@@ -1,15 +1,19 @@
+require('dotenv').config({ silent: true }); // Load local environment
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 
+app.set('port', (process.env.PORT));
+
 let isLooOccupied = false;
 
 app.use(bodyParser.json());
-app.get('/', function (req, res) {
+app.get('/', (req, res) => {
   res.send('The Loo is ' + (isLooOccupied ? 'occupied' : 'free for use :)'));
 });
 
-app.post('/loo', function (req, res) {
+app.post('/loo', (req, res) => {
   console.log(req.body);
   if (req.body.status === true) {
     isLooOccupied = true;
@@ -19,6 +23,6 @@ app.post('/loo', function (req, res) {
   res.send('Loo The Greatest is thankful for that!');
 });
 
-app.listen(3000, function () {
-  console.log('Loo The Greatest listening on port 3000!')
+app.listen(app.get('port'), () => {
+    console.log('Loo The Greatest listening on port', app.get('port'));
 });
