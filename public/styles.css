@@ -12,11 +12,9 @@ body {
   color: #222;
 }
 
-svg {
-  fill: currentColor;
-}
-
 .content {
+  width: 100%;
+  padding: 20px;
   margin: auto;
   text-align: center;
 }
@@ -37,18 +35,27 @@ svg {
 }
 
 .status {
+  min-height: 1em;
   margin: 0;
-  font-size: 3em;
-  height: 1.5em;
+  font-size: 2.5em;
+  font-weight: normal;
+  line-height: 1;
+}
+
+@media screen and (min-width: 769px) {
+  .status {
+    font-size: 4em;
+  }
 }
 
 .status strong {
   color: #66bb6a;
+  transition: none !important;
 }
 
 .loo {
-  width: 200px;
-  height: 200px;
+  width: 75%;
+  max-width: 300px;
   padding: 40px;
   margin: 20px auto;
   border-radius: 20px;
@@ -57,13 +64,18 @@ svg {
 }
 
 .loo svg {
+  display: block;
+  width: 100%;
   transform: scale(1.4);
   transform-origin: left bottom;
+  fill: currentColor;
 }
 
 .loo__person {
   opacity: 0;
 }
+
+/* Occupied */
 
 .content.-occupied .status strong {
   color: #f44336;
