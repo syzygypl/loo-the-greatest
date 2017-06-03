@@ -9,9 +9,6 @@ app.set('port', (process.env.PORT));
 let isLooOccupied = false;
 
 app.use(bodyParser.json());
-app.get('/', (req, res) => {
-  res.send('The Loo is ' + (isLooOccupied ? 'occupied' : 'free for use :)'));
-});
 
 app.post('/loo', (req, res) => {
   console.log(req.body);
@@ -22,6 +19,11 @@ app.post('/loo', (req, res) => {
   }
   res.send('Loo The Greatest is thankful for that!');
 });
+
+app.get('/status', (req, res) => {
+  res.send({ isLooOccupied });
+});
+app.use(express.static('public'));
 
 app.listen(app.get('port'), () => {
     console.log('Loo The Greatest listening on port', app.get('port'));

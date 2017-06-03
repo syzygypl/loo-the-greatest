@@ -1,0 +1,83 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  font: normal 16px/1.5 Arial, sans-serif;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: #fafafa;
+  color: #222;
+}
+
+svg {
+  fill: currentColor;
+}
+
+.content {
+  margin: auto;
+  text-align: center;
+}
+
+.content.-init * {
+  transition: all 1s;
+}
+
+.title {
+  font-size: 1.25em;
+  font-weight: normal;
+}
+
+.disclaimer {
+  font-style: italic;
+  font-size: .75em;
+  opacity: .5;
+}
+
+.status {
+  margin: 0;
+  font-size: 3em;
+  height: 1.5em;
+}
+
+.status strong {
+  color: #66bb6a;
+}
+
+.loo {
+  width: 200px;
+  height: 200px;
+  padding: 40px;
+  margin: 20px auto;
+  border-radius: 20px;
+  color: #fff;
+  background: #66bb6a;
+}
+
+.loo svg {
+  transform: scale(1.4);
+  transform-origin: left bottom;
+}
+
+.loo__person {
+  opacity: 0;
+}
+
+.content.-occupied .status strong {
+  color: #f44336;
+}
+
+.content.-occupied .loo {
+  border-radius: 50%;
+  background: #f44336;
+}
+
+.content.-occupied .loo svg {
+  transform: scale(1);
+}
+
+.content.-occupied .loo__person {
+  opacity: 1;
+}
