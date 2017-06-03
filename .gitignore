@@ -1,0 +1,10 @@
+# mac
+.DS_Store
+
+# PHPStorm
+.idea/
+atlassian-ide-plugin.xml
+
+# npm / node
+node_modules/
+npm-debug.log
